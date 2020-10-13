@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+This is the home
+<br>
+<a href="{% url 'posts:create' %}"> New Post </a>
+
+<br>
+<br>
+
+{% for post in posts.all %}
+
+UP {{ post.votes_total }} DOWN <a href="{{ posts.url }}">{{ post.title}}</a>
+<br>
+{{ post.pub_date }} by {{ post.author.username }}
+<br>
+<br>
+{% endfor %}
+
+
+</body>
+</html>

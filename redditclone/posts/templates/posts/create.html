@@ -4,7 +4,31 @@
     <meta charset="UTF-8">
     <title>Create a Post</title>
 </head>
+
 <body>
-Create Page
+<h1>New Post!</h1>
+
+{% if error %}
+<h3>{{ error }}</h3>
+<br>
+<br>
+{% endif %}
+
+<form method="POST" action="{% url 'posts:create' %}">
+    {% csrf_token %}
+
+    Title:
+    <br>
+    <input type="text" name="title">
+    <br>
+    Text:
+    <br>
+    <input type="text" name="url">
+    <br>
+    <br>
+    <input type="submit" value="Post">
+</form>
+
 </body>
+
 </html>
